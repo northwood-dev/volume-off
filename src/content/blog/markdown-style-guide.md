@@ -4,7 +4,7 @@ tags: ['news']
 title: 'Markdown Style Guide'
 description: 'test'
 intro: "Whether you're a beginner or a seasoned marathoner, the world of running offers endless opportunities for growth, self-discovery, and improvement."
-author: 'fantomtracks'
+author: 'northwood'
 pubDate: '2025-06-10'
 draft: true
 heroImage: {
