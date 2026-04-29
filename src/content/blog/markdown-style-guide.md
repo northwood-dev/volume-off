@@ -6,7 +6,7 @@ description: 'test'
 intro: "Whether you're a beginner or a seasoned marathoner, the world of running offers endless opportunities for growth, self-discovery, and improvement."
 author: 'fantomtracks'
 pubDate: '2025-06-10'
-onlyDev: true
+draft: true
 heroImage: {
     src: '/running.webp',
     caption: 'A runner, as the main focus, demonstrating proper running form with a knee drive on a scenic path in Prospect Park, Brooklyn. Shot close-up on a Canon EOS R5 with a 70-200mm f/2.8 lens at 200mm, ensuring the runner remains centered and prominent --ar 16:9',

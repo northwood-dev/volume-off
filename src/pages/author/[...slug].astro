@@ -7,7 +7,7 @@ const { author } = Astro.props;
 
 export async function getStaticPaths() {
 	const isDev = import.meta.env.DEV;
-	const posts = (await getCollection('blog')).filter((p) => isDev || !p.data.onlyDev);
+	const posts = (await getCollection('blog')).filter((p) => isDev || !p.data.draft);
 	
 	// Extract unique categories from the posts
 	const categories = [...new Set(posts.map((post) => post.data.author))];
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 // Filter posts by the current author (and hide dev-only in prod)
 const isDev = import.meta.env.DEV;
 const posts = (await getCollection('blog'))
-	.filter((p) => isDev || !p.data.onlyDev)
+	.filter((p) => isDev || !p.data.draft)
 	.filter((post) => post.data.author === author);
 ---
 <Layout>

@@ -5,7 +5,8 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 // Fetch all posts and extract tags
-const allPosts = await getCollection('blog');
+const isDev = import.meta.env.DEV;
+const allPosts = (await getCollection('blog')).filter((p) => isDev || !p.data.draft);
 const allTags = allPosts.flatMap((post) => post.data.tags || []); // Flatten all tags into a single array
 ---
 

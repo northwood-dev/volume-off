@@ -5,8 +5,8 @@ const htmlClasses = `bloglist ${cssMod}`;
 
 // In prod, hide posts flagged as dev-only
 const visiblePosts = (posts || []).filter((p) => {
-	const devOnly = Boolean(p?.data?.onlyDev);
-	return import.meta.env.DEV || !devOnly;
+	const isDraft = Boolean(p?.data?.draft);
+	return import.meta.env.DEV || !isDraft;
 });
 ---
 <ul class={htmlClasses}>

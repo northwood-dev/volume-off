@@ -8,7 +8,7 @@ const { tag } = Astro.props;
 
 export async function getStaticPaths() {
 	const isDev = import.meta.env.DEV;
-	const posts = (await getCollection('blog')).filter((p) => isDev || !p.data.onlyDev);
+	const posts = (await getCollection('blog')).filter((p) => isDev || !p.data.draft);
 	
 	// Extract unique tags from all posts
 	const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 // Fetch all posts (filtered in prod)
 const isDev = import.meta.env.DEV;
-const allPosts = (await getCollection('blog')).filter((p) => isDev || !p.data.onlyDev);
+const allPosts = (await getCollection('blog')).filter((p) => isDev || !p.data.draft);
 
 // Filter posts by the current tag
 const posts = allPosts.filter((post) => 

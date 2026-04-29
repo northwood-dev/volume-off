@@ -7,19 +7,23 @@ import ArticleMetas from '../components/ArticleMetas.astro';
 import AllTags from '../components/AllTags.astro';
 import TagsCloud from '../components/TagsCloud.astro';
 import LatestPosts from '../components/LatestPosts.astro';
+import DraftBadge from '../components/DraftBadge.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const {
 	tags,
 	title,
-    description,
+	description,
 	intro,
 	author,
 	pubDate,
 	updatedDate,
-	heroImage
+	heroImage,
+	draft
 } = Astro.props;
+
+const isDev = import.meta.env.DEV;
 
 // Fetch all posts to extract tags
 const allPosts = await getCollection('blog');
@@ -31,6 +35,7 @@ const allTags = allPosts.flatMap((post) => post.data.tags || []); // Flatten all
 <Layout title={title} description={description} image={heroImage.src ? heroImage.src : ''}>
 	<article class="content-flow entry-content">
 		<h1>{title}</h1>
+		{isDev && draft && <div><DraftBadge /></div>}
 		<p class="intro">{intro}</p>
 		<TagsCloud {tags} />
 		<ArticleMetas 

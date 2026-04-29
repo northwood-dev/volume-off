@@ -1,0 +1,25 @@
+---
+const { variant = 'inline' } = Astro.props;
+---
+
+<span class={`draft-badge draft-badge--${variant}`}>Draft</span>
+
+<style>
+  .draft-badge {
+    display: inline-block;
+    background-color: #f59e0b;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .draft-badge--overlay {
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+  }
+</style>
