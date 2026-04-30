@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com', // TODO, change that later
+	site: 'https://volumeoff.io',
 	integrations: [mdx(), sitemap()],
 	redirects: {
 		"/": "/blog/"
